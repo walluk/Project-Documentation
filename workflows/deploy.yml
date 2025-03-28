@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Zugriff auf Secret
+        run: echo "Das geheime Token ist gesetzt"
+        env:
+          SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
